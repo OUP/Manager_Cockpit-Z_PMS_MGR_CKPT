@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://s4dbasdev130:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s4dbasdev130:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s4dbasdev130:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s4dbasdev130:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s4dbasdev130:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZPMSMGRCOCKPIT_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="ZPMS_C_MGR_COCKPITType" sap:label="Managers Cockpit" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="posid"/>
+                </Key>
+                <Property Name="posid" Type="Edm.String" Nullable="false" MaxLength="24"/>
+                <Property Name="post1" Type="Edm.String" MaxLength="40" sap:label="Description" sap:quickinfo="PS: Short description (1st text line)"/>
+                <Property Name="usrstat_code" Type="Edm.String" MaxLength="4" sap:text="usrstat_code_Text" sap:label="User Status" sap:quickinfo="Individual status of an object (short form)" sap:value-list="fixed-values"/>
+                <Property Name="usrstat_code_Text" Type="Edm.String" MaxLength="30" sap:label="Description" sap:quickinfo="Object status" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="frgco" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:text="frgco_Text" sap:label="PReq Release Status" sap:quickinfo="Release code" sap:value-list="standard"/>
+                <Property Name="frgco_Text" Type="Edm.String" MaxLength="20" sap:label="Description" sap:quickinfo="Description of release code" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="zz1_packinformation_prd" Type="Edm.String" MaxLength="3" sap:label="Pack Information"/>
+                <Property Name="vernr" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:text="vernr_Text" sap:label="No. of Person Resp." sap:quickinfo="Number of the Responsible Person (Project Manager)"/>
+                <Property Name="vernr_Text" Type="Edm.String" MaxLength="25" sap:label="Name of Person Resp." sap:quickinfo="Name of responsible person (Project manager)" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="menge" Type="Edm.Decimal" Precision="13" Scale="3"/>
+                <Property Name="lfdat" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Delivery date" sap:quickinfo="Item delivery date"/>
+                <Property Name="bulk_deal" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:text="bulk_deal_Text" sap:label="Bulk Deal Code"/>
+                <Property Name="bulk_deal_Text" Type="Edm.String" MaxLength="25" sap:display-format="UpperCase" sap:label="Bulk Deal Descriptn" sap:quickinfo="Bulk Deal Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="banfn" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Purchase Requisition" sap:quickinfo="Purchase Requisition Number"/>
+                <Property Name="frgdt" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:required-in-filter="true" sap:label="PReq Release Date" sap:quickinfo="Purchase Requisition Release Date"/>
+                <Property Name="psphi" Type="Edm.String" MaxLength="24"/>
+            </EntityType>
+            <EntityType Name="ZPMS_I_T16FC_VHType" sap:label="Value help for ZPMS_DIG_PRINTER" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="frgco"/>
+                </Key>
+                <Property Name="frgco" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:label="Release code"/>
+                <Property Name="frgct" Type="Edm.String" MaxLength="20" sap:label="Description" sap:quickinfo="Description of release code"/>
+            </EntityType>
+            <EntityType Name="ZPMS_I_TJ30T_VHType" sap:label="Value help for ZPMS_DIG_PRINTER" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="usrstat_code"/>
+                </Key>
+                <Property Name="usrstat_code" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="User Status Code" sap:quickinfo="Individual status of an object (short form)"/>
+                <Property Name="description" Type="Edm.String" MaxLength="30" sap:label="Description" sap:quickinfo="Object status"/>
+            </EntityType>
+            <EntityContainer Name="ZPMSMGRCOCKPIT_SRV_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ZPMS_C_MGR_COCKPIT" EntityType="ZPMSMGRCOCKPIT_SRV.ZPMS_C_MGR_COCKPITType" sap:creatable="false" sap:deletable="false" sap:requires-filter="true" sap:content-version="1"/>
+                <EntitySet Name="ZPMS_I_T16FC_VH" EntityType="ZPMSMGRCOCKPIT_SRV.ZPMS_I_T16FC_VHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="ZPMS_I_TJ30T_VH" EntityType="ZPMSMGRCOCKPIT_SRV.ZPMS_I_TJ30T_VHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+            </EntityContainer>
+            <Annotations Target="ZPMSMGRCOCKPIT_SRV.ZPMS_C_MGR_COCKPITType/usrstat_code" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Value help for ZPMS_DIG_PRINTER"/>
+                        <PropertyValue Property="CollectionPath" String="ZPMS_I_TJ30T_VH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="usrstat_code"/>
+                                    <PropertyValue Property="ValueListProperty" String="usrstat_code"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="description"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="ZPMSMGRCOCKPIT_SRV.ZPMS_C_MGR_COCKPITType/frgco" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Value help for ZPMS_DIG_PRINTER"/>
+                        <PropertyValue Property="CollectionPath" String="ZPMS_I_T16FC_VH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="frgco"/>
+                                    <PropertyValue Property="ValueListProperty" String="frgco"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="frgct"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZPMSMGRCOCKPIT_SRV.ZPMSMGRCOCKPIT_SRV_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="None"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZPMSMGRCOCKPIT_SRV.ZPMSMGRCOCKPIT_SRV_Entities/ZPMS_C_MGR_COCKPIT" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="RequiresFilter" Bool="true"/>
+                        <PropertyValue Property="RequiredProperties">
+                            <Collection>
+                                <PropertyPath>frgdt</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="https://s4dbasdev130:443/sap/opu/odata/sap/ZPMSMGRCOCKPIT_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://s4dbasdev130:443/sap/opu/odata/sap/ZPMSMGRCOCKPIT_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
