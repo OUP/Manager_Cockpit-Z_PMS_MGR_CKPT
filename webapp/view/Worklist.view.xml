@@ -146,10 +146,11 @@
                                         width="285px"
                                         forceSelection="false"
                                         selectedKey="{vernr}"
-                                        showSecondaryValues= "true"
+                                        showSecondaryValues= "false"
                                         visible="{oViewModel>/edit}"
                                         items="{path: '/ZPMS_I_TCJ04VH', templateShareable: false}">
-                                        <core:ListItem key="{vernr}" text="{vernr}" additionalText="{description}"/>
+                                        <!-- <core:ListItem key="{vernr}" text="{vernr}" additionalText="{description}"/> -->
+                                        <core:Item key="{vernr}" text="{description} ({vernr})" />
                                     </Select>
                                 </HBox>
                             </table:template>
@@ -170,10 +171,11 @@
                                         width="285px"
                                         forceSelection="false"
                                         selectedKey="{astnr}"
-                                        showSecondaryValues= "true"
+                                        showSecondaryValues= "false"
                                         visible="{oViewModel>/edit}"
                                         items="{path: '/ZPMS_I_TCJ05VH', templateShareable: false}">
-                                        <core:ListItem key="{astnr}" text="{astnr}" additionalText="{description}"/>
+                                        <!-- <core:ListItem key="{astnr}" text="{astnr}" additionalText="{description}"/> -->
+                                        <core:Item key="{astnr}" text="{description} ({astnr})" />
                                     </Select>
                                 </HBox>
                             </table:template>
@@ -220,10 +222,11 @@
                                         width="335px"
                                         forceSelection="false"
                                         selectedKey="{bulk_deal}"
-                                        showSecondaryValues= "true"
+                                        showSecondaryValues= "false"
                                         visible="{oViewModel>/edit}"
                                         items="{path: '/ZPMS_I_BULKDEAL_VH', templateShareable: false}">
-                                        <core:ListItem key="{bulk_deal}" text="{bulk_deal}" additionalText="{description}"/>
+                                        <!-- <core:ListItem key="{bulk_deal}" text="{bulk_deal}" additionalText="{description}"/> -->
+                                        <core:Item key="{bulk_deal}" text="{description} ({bulk_deal})" />
                                     </Select>
                                 </HBox>
                             </table:template>
