@@ -155,7 +155,7 @@
                                 </HBox>
                             </table:template>
                         </table:Column>
-                        <table:Column width="300px" hAlign="Begin" filterProperty="astnr" sortProperty="astnr" resizable="false">
+                        <table:Column width="300px" hAlign="Begin" filterProperty="astnr" sortProperty="astnr">
                             <table:customData>
                                 <core:CustomData 
                                     key="p13nData"
@@ -180,7 +180,7 @@
                                 </HBox>
                             </table:template>
                         </table:Column>
-                        <table:Column width="175px" hAlign="Begin" filterProperty="frgco" sortProperty="frgco" resizable="false">
+                        <table:Column width="175px" hAlign="Begin" filterProperty="frgco" sortProperty="frgco">
                             <table:customData>
                                 <core:CustomData 
                                     key="p13nData"
