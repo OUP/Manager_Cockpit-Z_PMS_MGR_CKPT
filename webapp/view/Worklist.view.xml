@@ -26,7 +26,7 @@
 	           <smartFilterBar:SmartFilterBar 
                     id="list-search-id"
                     entitySet="ZPMS_C_MGR_COCKPIT" 
-                    persistencyKey="SmartFilter_Explored"
+                    persistencyKey="ZPMS_C_MGR_COCKPIT_P_SF_KEY"
                     useDateRangeType="true">
 
                     <!-- <smartFilterBar:controlConfiguration>
@@ -47,8 +47,9 @@
                 tableType="Table" 
                 useExportToExcel="true"
                 beforeExport=".onBeforeExport"
-                useVariantManagement="false" 
+                useVariantManagement="true" 
                 useTablePersonalisation="true" 
+                persistencyKey="ZPMS_C_MGR_COCKPIT_P_ST_KEY"
                 header="{i18n>worklistTableTitle}" 
                 showRowCount="true"
                 enableAutoBinding="false"
@@ -180,6 +181,7 @@
                                 </HBox>
                             </table:template>
                         </table:Column>
+                       
                         <table:Column width="175px" hAlign="Begin" filterProperty="frgco" sortProperty="frgco">
                             <table:customData>
                                 <core:CustomData 
@@ -204,6 +206,17 @@
                                     text="{banfn}" 
                                     press=".onPRNavPress"
                                     tooltip="{/#ZPMS_C_MGR_COCKPITType/banfn/@sap:label}"/>
+                            </table:template>
+                        </table:Column>
+                         <table:Column width="100px" hAlign="Begin" sortProperty="preq_text">
+                            <table:customData>
+                                <core:CustomData 
+                                    key="p13nData"
+                                    value='\{"columnKey": "preq_text", "columnIndex":"10"}' />
+                            </table:customData>
+                            <Text text="PREQ Text" />
+                            <table:template>
+                                <Text text="{preq_text}"/>
                             </table:template>
                         </table:Column>
                         <table:Column width="350px" hAlign="Begin" filterProperty="bulk_deal" sortProperty="bulk_deal">
