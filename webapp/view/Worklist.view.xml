@@ -105,7 +105,7 @@
                 </smartTable:customToolbar>
 
                 <!-- custom columns editable -->
-                <table:Table selectionMode="Single" visibleRowCountMode="Auto">
+                <table:Table selectionMode="Single" visibleRowCountMode="Auto" enableColumnFreeze="true">
                     <table:columns>
                         <table:Column width="200px" hAlign="Begin" filterProperty="usrstat_code" sortProperty="usrstat_code">
                             <table:customData>
