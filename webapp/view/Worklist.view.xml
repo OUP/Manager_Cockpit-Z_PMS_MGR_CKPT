@@ -90,7 +90,18 @@
                             <table:template>
                                 <HBox>
                                     <Text text="{parts: [{path: 'vernr'}, {path: 'vernr_Text'}], formatter: '.formatter.keyText'}" visible="{=!${oViewModel>/edit}}" />
-                                    <Select width="285px" forceSelection="false" selectedKey="{vernr}" showSecondaryValues="false" visible="{oViewModel>/edit}" items="{path: '/ZPMS_I_TCJ04VH', templateShareable: false}">
+                                    <Select 
+                                        width="285px" 
+                                        forceSelection="false" 
+                                        selectedKey="{vernr}" 
+                                        showSecondaryValues="false" 
+                                        visible="{oViewModel>/edit}" 
+                                        items="{
+                                            path: '/ZPMS_I_TCJ04VH',
+                                            sorter: {path: 'description', descending: false}, 
+                                            templateShareable: false
+                                        }"
+                                    >
                                         <!-- <core:ListItem key="{vernr}" text="{vernr}" additionalText="{description}"/> -->
                                         <core:Item key="{vernr}" text="{description} ({vernr})" />
                                     </Select>
@@ -105,7 +116,18 @@
                             <table:template>
                                 <HBox>
                                     <Text text="{parts: [{path: 'astnr'}, {path: 'astnr_Text'}], formatter: '.formatter.keyText'}" visible="{=!${oViewModel>/edit}}" />
-                                    <Select width="285px" forceSelection="false" selectedKey="{astnr}" showSecondaryValues="false" visible="{oViewModel>/edit}" items="{path: '/ZPMS_I_TCJ05VH', templateShareable: false}">
+                                    <Select 
+                                        width="285px" 
+                                        forceSelection="false" 
+                                        selectedKey="{astnr}" 
+                                        showSecondaryValues="false" 
+                                        visible="{oViewModel>/edit}" 
+                                        items="{
+                                            path: '/ZPMS_I_TCJ05VH',
+                                            sorter: {path: 'description', descending: false}, 
+                                            templateShareable: false
+                                        }"
+                                    >
                                         <!-- <core:ListItem key="{astnr}" text="{astnr}" additionalText="{description}"/> -->
                                         <core:Item key="{astnr}" text="{description} ({astnr})" />
                                     </Select>
