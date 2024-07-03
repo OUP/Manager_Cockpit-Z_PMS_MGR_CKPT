@@ -66,7 +66,7 @@
                 </smartTable:customToolbar>
 
                 <!-- custom columns editable -->
-                <table:Table selectionMode="Single" threshold="25" visibleRowCountMode="Auto" enableColumnFreeze="true">
+                <table:Table selectionMode="Single" threshold="99999" visibleRowCountMode="Auto" enableColumnFreeze="true">
                     <table:columns>
                         <table:Column width="200px" hAlign="Begin" filterProperty="usrstat_code" sortProperty="usrstat_code">
                             <table:customData>

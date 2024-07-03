@@ -44,6 +44,9 @@ sap.ui.define(
         // view model
         this.setModel(_oViewModel, "oViewModel");
 
+        // increase the size limit of odata model
+        this.getOwnerComponent().getModel().setSizeLimit(999999);
+
         // table initialization
         this._tableInit();
       },
